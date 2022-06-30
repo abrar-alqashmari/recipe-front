@@ -14,6 +14,7 @@ export default function Categories() {
             })
             .catch(e => console.log(e))
     }, [])
+    console.log("hello1")
   return (
   
         <div className="col-12 mt-5 mb-3">
@@ -30,6 +31,7 @@ export default function Categories() {
                     <img src={category?.photo} alt={category.name} />
                     </div>
           </div>
+          console.log("hello2")
         </Link>
       </div>
       })}

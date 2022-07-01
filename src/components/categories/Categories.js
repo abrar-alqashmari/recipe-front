@@ -6,7 +6,7 @@ export default function Categories() {
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}categories`)
             .then(response => {
-                response.json().then(categories => {
+                response.json().then(category => {
                     if (categories?.success) {
                         setCategories(categories.data)
                     }

@@ -34,11 +34,11 @@ const Recipes = () => {
                             <div className="row g-0">
                                 <div className="col-sm-4 col-6">
                                     <div className="recipe-photo">
-                                        <img src={data.photo} alt="" />
+                                        <img src={data.photo} width= "60" height="60" alt="" />
                                     </div>
                                     </div>
                                     <div className="recipe-bg-photo">
-                                        <img src={data.background} alt="" />
+                                        <img src={data.background} width= "60" height="60" alt="" />
                                     </div>
 
                                 </div>

@@ -28,12 +28,14 @@ const Recipes = () => {
                     </div>
                 </div>
                 {allRecipes && allRecipes.map((data, i) => {
-                    return (
+                    return ( 
+                        <div className={`recipe`} key={i} >
                         <div className="col-lg-8">
                             <div className="row g-0">
                                 <div className="col-sm-4 col-6">
                                     <div className="recipe-photo">
                                         <img src={data.photo} alt="" />
+                                    </div>
                                     </div>
                                     <div className="recipe-bg-photo">
                                         <img src={data.background} alt="" />

@@ -17,7 +17,7 @@ const Recipes = () => {
     }, [])
     return (
         <>
-            <div class="section recipe-items p-0 overflow:visible;background-color: #f9f9f9">
+            <div className="section recipe-items p-0 overflow:visible;background-color: #f9f9f9">
                 <div className="row align-items-stretch align-content-stretch g-0">
                         <div className="recipe min-vh-60 min-vh-md-100 d-flex flex-column justify-content-center top:0 center center / cover">
                     <div className="col-lg-4 light">

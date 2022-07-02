@@ -34,10 +34,10 @@ export default function Categories() {
                 <h5>{category.name}</h5>
                 </div>
                   <div className={`recipe-category-icon`}>
-                    <img src={category?.icon} alt={category.name} />
+                    <img src={category.icon} alt={category.name} />
                   </div>
                   <div className={`categoryPhoto`}>
-                    <img src={category?.photo}  alt={category.name} />
+                    <img src={category.photo}  alt={category.name} />
                   </div>
                 </div>
               </Link>

@@ -17,8 +17,9 @@ const Recipes = () => {
             .catch((e) => console.log(e));
     }, []);
     return (
-        <div className="section recipe-items p-0 overflow:visible;background-color: #f9f9f9">
-            <div className="row align-items-stretch align-content-stretch g-0">
+        <div className='main'>
+<div className='container'>
+                <div className="row align-items-stretch align-content-stretch g-0">
                 {/* <div className="recipe min-vh-60 min-vh-md-100 d-flex flex-column justify-content-center top:0 center center / cover"> */}
                 <div className="col-lg-4 light">
                     <div class="position-sticky min-vh-60 min-vh-md-100 d-flex flex-column align-items-center center justify-content-center top:0; background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)), center center / cover;">
@@ -33,19 +34,20 @@ const Recipes = () => {
                         <div className="col-sm-4 col-6">
                             {recipes.map((recipe, i) => {
                                 return (
-                                    <div className="d-flex justify-content-between align-items-center mt-4 mb-2">
+                                    <div >
                                     <div className={`recipe`} key={i} >
                                         <Link to={`/recipe/${recipe.id}`} ></Link>
                                         <div className="card">
                                             <div className="card-body">
+
                                                 <div className={`recipe-info`}>
                                                     <h4>{recipe.name}</h4>
-                                                    <h5>{recipe.description}</h5>
+                                                    {/* <h5>{recipe.description}</h5>
                                                     <h5>{recipe.category}</h5>
-                                                    <h5>{recipe.youtube_video}</h5>
-                                                <div className="recipe-photo">
+                                                    <h5>{recipe.youtube_video}</h5> */}
+                                                {/* <div className="recipe-photo">
                                                     <img src={recipe.recipe_photo} alt="" />
-                                                </div>
+                                                </div> */}
                                             </div>
                                             <div className="recipe-bg-photo">
                                                 <img src={recipe.background_photo} alt="" />
@@ -60,6 +62,7 @@ const Recipes = () => {
                             )
                             }
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

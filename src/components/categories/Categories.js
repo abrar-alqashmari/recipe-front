@@ -18,9 +18,11 @@ export default function Categories() {
   return (
   <div>
      <div className="col-12 mt-5 mb-3">
-         <h3 className="center">Browse by Category</h3>
+      <div className="center">
+         <h3>Browse by Category</h3>
+         </div>
       <div className="recipe-categories justify-content-center">
-  
+     
         {categories.map((category, i) => {
           return (
             <div className={`category`} key={i}>
@@ -29,12 +31,13 @@ export default function Categories() {
                 data-animate="fadeInUp"
                 data-delay={i * 1000}
                 className="recipe-category">
-                <div className="recipe-category-inner">
+                <div>
                 <div className={`recipe-category-info`}>
                 <h5>{category.name}</h5>
                 </div>
                   <div className={`recipe-category-icon`}>
                     <img src={category.icon} alt={category.name} />
+                    {/* <img src={category.icon} alt={category.name} /> */}
                   </div>
                   <div className={`categoryPhoto`}>
                     <img src={category.photo}  alt={category.name} />

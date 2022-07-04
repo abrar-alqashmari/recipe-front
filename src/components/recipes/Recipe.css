@@ -30,17 +30,17 @@
     box-sizing: border-box;
 }
 .recipe-items .row {
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgb(61, 7, 7);
     margin-top: -1px;
     margin-bottom: -1px;
 }
 .align-content-stretch {
-    align-content: stretch!important;
+    align-content: stretch;
 }
 .button.button-light {
-    background-color: #eee;
+    background-color: rgb(192, 180, 180);
     color: #333;
-    text-shadow: none!important;}
+    text-shadow: none;}
     .button.button-large {
         padding: 8px 26px;
         font-size: 16px;
@@ -58,7 +58,7 @@
         border-radius: 0;
         padding: 20px 10px;
     }
-    .card {
+    /* .card {
         --bs-card-spacer-y: 1rem;
         --bs-card-spacer-x: 1rem;
         --bs-card-title-spacer-y: 0.5rem;
@@ -71,24 +71,18 @@
         --bs-card-cap-padding-x: 1rem;
         --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
         --bs-card-cap-color: ;
-        --bs-card-height: ;
-        --bs-card-color: ;
+        --bs-card-height:200px ;
+        --bs-card-color: gray;
         --bs-card-bg: #fff;
         --bs-card-img-overlay-padding: 1rem;
         --bs-card-group-margin: 0.75rem;
         position: relative;
-        display: flex;
-        flex-direction: column;
-        min-width: 0;
-        height: var(--bs-card-height);
-        word-wrap: break-word;
-        background-color: var(--bs-card-bg);
-        background-clip: border-box;
-        border: var(--bs-card-border-width) solid var(--bs-card-border-color);
-        border-radius: var(--bs-card-border-radius);
+        display: inline-block;
     }
     .card-body {
         flex: 1 1 auto;
         padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
         color: var(--bs-card-color);
-    }
+    } */
+
+    

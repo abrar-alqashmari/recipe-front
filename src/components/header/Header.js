@@ -1,4 +1,5 @@
-import logo from '../../assets/images/logo.png'
+import logo from '../../assets/images/logo.png';
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
@@ -22,35 +23,31 @@ const Header = () => {
 						<nav className="primary-menu">
 							<ul className="menu-container">
 								<li className="menu-item current">
-                                    <a className="menu-link" href="demo-recipes.html"><div>Home</div></a>
+                                    <Link to="/" className="menu-link" href="demo-recipes.html"><div>Home</div></Link>
+                                </li>
+								<li className="menu-item current">
+                                    <Link to="/mylist" className="menu-link" href="demo-recipes.html"><div>My List</div></Link>
                                 </li>
 								<li className="menu-item">
-                                    <a className="menu-link" href="demo-recipes-about-us.html"><div>About Us</div></a>
+                                    <Link to="/aboutUs" className="menu-link" href="demo-recipes-about-us.html"><div>About Us</div></Link>
                                 </li>
 								<li className="menu-item">
                                     <a className="menu-link" href="demo-recipes-recipes.html">
-                                        <div>Recipes <i className="icon-angle-down1 d-none d-lg-inline-block"></i></div>
+                                        <div>Accounts<i className="icon-angle-down1 d-none d-lg-inline-block"></i></div>
                                     </a>
 									<ul className="sub-menu-container rounded-bottom">
-										<li className="menu-item">
-                                            <a className="menu-link" href="demo-recipes-recipe-single.html"><div>Recipe Single Page</div></a>
-                                        </li>
 										 <div className="dropdown-divider my-0"></div>
 										<li className="menu-item">
-                                            <a className="menu-link" href="demo-recipes-recipes.html"><div>Popular</div></a>
+                                            <Link to="/signup"className="menu-link" href="demo-recipes-recipes.html"><div>SignUp</div></Link>
                                         </li>
 										<li className="menu-item">
-                                            <a className="menu-link" href="demo-recipes-recipes.html"><div>Recent</div></a>
+                                            <Link to="/signin"className="menu-link" href="demo-recipes-recipes.html"><div>SignIn</div></Link>
                                         </li>
 										<li className="menu-item">
-                                            <a className="menu-link" href="demo-recipes-recipes.html"><div>Most liked</div></a>
-                                        </li>
-										<li className="menu-item">
-                                            <a className="menu-link" href="demo-recipes-recipes.html"><div>Most Commented</div></a>
+                                            <Link to="/logout"className="menu-link" href="demo-recipes-recipes.html"><div>LogOut</div></Link>
                                         </li>
 									</ul>
 								</li>
-								<li className="menu-item"><a className="menu-link" href="demo-recipes-contact.html"><div>Contact Us</div></a></li>
 							</ul>
 						</nav>
 					</div>

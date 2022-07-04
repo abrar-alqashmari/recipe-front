@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import './Recipe.css'
 const Recipes = () => {
-
     const [recipes, setRecipes] = useState([]);
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}recipes`)
@@ -29,17 +28,16 @@ const Recipes = () => {
                     </div>
                     {/* </div> */}
                 </div>
-                <div className="col-lg-8">
+                <div className=" col-lg-6">
                     <div className="row g-0">
                         <div className="col-sm-4 col-6">
+                        <div className="card">
+                         <div className="card-body">
                             {recipes.map((recipe, i) => {
                                 return (
                                     <div >
                                     <div className={`recipe`} key={i} >
                                         <Link to={`/recipe/${recipe.id}`} ></Link>
-                                        <div className="card">
-                                            <div className="card-body">
-
                                                 <div className={`recipe-info`}>
                                                     <h4>{recipe.name}</h4>
                                                     {/* <h5>{recipe.description}</h5>
@@ -55,8 +53,6 @@ const Recipes = () => {
                                                     {/* <p class="card-author">By <a href="#">Gunther Beard</a></p> */}
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
                                 )
                             }
                             )
@@ -67,12 +63,8 @@ const Recipes = () => {
                 </div>
             </div>
         </div>
+        </div>
+   </div>
     )
-
-
 }
-
-
-
-
 export default Recipes;

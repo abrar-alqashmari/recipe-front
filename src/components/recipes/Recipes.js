@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import './Recipe.css'
 const Recipes = () => {
-
     const [recipes, setRecipes] = useState([]);
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}recipes`)
@@ -61,6 +60,7 @@ const Recipes = () => {
                             )
                             }
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

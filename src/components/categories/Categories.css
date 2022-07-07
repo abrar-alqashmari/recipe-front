@@ -1,0 +1,105 @@
+.center h3{
+    color: rgb(71, 69, 69);
+    font-weight: 1000;
+    line-height: 2.5;
+    margin: 0 0 30px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+.mt-5{
+    margin-bottom: 3rem;
+}
+.recipe-category {
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 calc(100% - 20px);
+    max-width: calc(100% - 20px);
+    margin: 40px;
+    height: 80px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 250px;
+    transition: all .10s cubic-bezier(.02,.01,.5,1);
+}
+.recipe-categories {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+/* .justify-content-center {
+    justify-content: center!important;
+} */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* *, ::after, ::before {
+    box-sizing: border-box;
+} */
+
+/* .recipe-category-inner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 2;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+} */
+
+.recipe-category-info {
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+/* .recipe-category-info h5 {
+    color: rgb(90, 85, 85);
+    font-size: 20px;
+    text-align: center;
+} */
+/* * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+} */
+
+div {
+    display: block;
+}
+.recipe-category-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #fff;
+    padding: 8px;
+    margin-right: 10px;
+    color: #000;
+    transition: transform .5s ease-out;
+}
+.categoryPhoto{
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #fff;
+    padding: 10px;
+    margin-right: 15px;
+    color: #000;
+    transition: transform .5s ease-out;
+}

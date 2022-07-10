@@ -1,0 +1,59 @@
+.MyRecipe {
+    width: 100%;
+    height: 100vh;
+     background-image: url(https://images.unsplash.com/photo-1612472844996-40238aff6eab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+     /* background-image: url(https://fujilove.com/wp-content/uploads/2019/08/TanjaHauser-01-1536x1024.jpg); */
+     align-items: center; 
+    background-size:cover;
+     background-attachment: fixed;  
+     
+}
+
+.MyRecipe-content {
+    display: flex-inline;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(238, 232, 232);
+}
+.containerb{
+    padding-left: 10rem;
+    background-color: rgba(58, 58, 58, 0.144);
+    display: flex-inline;
+    padding-bottom: 15rem;
+}
+.MyRecipe-content h1 {
+    padding-top:10rem;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    color: rgb(238, 238, 238);
+}
+
+.MyRecipe-content p {
+    padding-top:2rem;
+    line-height: 35px;
+    
+}
+.button.button-light {
+    padding-top:5rem;
+
+    background-color: rgb(230, 220, 220);
+    color: rgb(97, 94, 94);
+    text-shadow: none;}
+    .button.button-large {
+        padding: 8px 26px;
+        font-size: 16px;
+        line-height: 30px;
+        
+    }
+    .button.button-circle {
+        border-radius: 20px;
+        
+    }
+    .button.button-large.button-circle {
+        border-radius: 23px;
+        
+    }
+    .container2{
+        padding-top: 1rem;
+    }
+

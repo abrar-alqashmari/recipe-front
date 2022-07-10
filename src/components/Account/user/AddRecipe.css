@@ -1,0 +1,47 @@
+
+.box{
+    padding: 5rem 5rem 5rem 5rem;
+    background-image: url(https://fujilove.com/wp-content/uploads/2019/08/TanjaHauser-01-1536x1024.jpg);
+}
+.box1{
+    background-color: rgba(192, 59, 59, 0.76);
+}
+
+.recipee {
+margin: auto;
+display: inline-block;
+padding-left: 45rem;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+color: white;
+}
+
+.form {
+    display: inline-block;
+     padding-left: 30rem;
+     padding-right: 30rem;
+     color: white;
+background-color: rgba(255, 255, 255, 0.116);
+    }
+
+.form-control{
+    border-style:dashed;
+    border-radius: 5px;
+    
+}
+.form h4{
+  padding-top: 2rem;
+  padding-left: 12rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: inline-block;
+  text-transform: uppercase;
+  color: white;
+
+}
+.button1{
+    padding-left: 45%;
+
+}
+.secim{
+    background-color: rgba(255, 255, 255, 0.514)
+}
+

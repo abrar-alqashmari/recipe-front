@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useRequest } from "../../../hooks/useRequest";
+import './AddRecipe.css'
 
 const EditRecipe = () => {
 	const navigate = useNavigate()
@@ -69,11 +70,12 @@ const EditRecipe = () => {
 			})
 	}
 	return (
-		<div className="custombox clearfix">
-			<h4 className="small-name">Edit recipe</h4>
+		<div className="box1">
+			<div className="box">
+			<h3 className="recipee">Edit recipe</h3>
 			<div className="row">
 				<div className="col-lg-12">
-					<div className="form-wrapper">
+					<div className="form">
 						<input type={"text"}
 							onChange={(e) => { setRecipe({ ...recipe, name: e.target.value }) }}
 							value={recipe?.name} ref={nameRef} className="form-control" placeholder="name" />
@@ -83,7 +85,7 @@ const EditRecipe = () => {
 						
 
 						<h4>Select recipe Categories</h4>
-						<div className="container-fluid">
+						<div className="container">
 							<div className="row mb-4">
 								{
 									categories?.map((category, i) => {
@@ -105,10 +107,13 @@ const EditRecipe = () => {
 						<input type={"file"} ref={photoRef} className="form-control" placeholder="photo" />
                         <input type={"file"} ref={backgroundRef} className="form-control" placeholder="background photo" />
 						<textarea ref={descriptionRef} className="form-control" placeholder="Your Article" defaultValue={recipe?.description}></textarea>
-						<button onClick={addrecipe} type="button" className="btn btn-primary">Submit</button>
+						<div className="button1">
+						<button onClick={addrecipe} type="button" className="button button-large m-0  fw-bold button-circle button-light">Submit</button>
 					</div>
 				</div>
+				</div>
 			</div>
+		</div>
 		</div>
 	)
 }

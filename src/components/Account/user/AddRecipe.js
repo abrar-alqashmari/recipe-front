@@ -45,7 +45,7 @@ const AddRecipe = () => {
 			.then((response) => {
 				window.alert(response?.messages?.join(' '))
 				if (response?.success) {
-					navigate('/user/recipes')
+					navigate('/user/UserRecipes')
 				}
 			})
 	}

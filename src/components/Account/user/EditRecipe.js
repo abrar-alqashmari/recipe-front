@@ -65,7 +65,7 @@ const EditRecipe = () => {
 			.then((response) => {
 				window.alert(response?.messages?.join(' '))
 				if (response?.success) {
-					navigate('/account/recipes')
+					navigate('/user/UserRecipes')
 				}
 			})
 	}
@@ -78,7 +78,7 @@ const EditRecipe = () => {
 					<div className="form">
 						<input type={"text"}
 							onChange={(e) => { setRecipe({ ...recipe, name: e.target.value }) }}
-							value={recipe?.name} ref={nameRef} className="form-control" placeholder="name" />
+							value={recipe?.name} ref={nameRef} className="form-control" placeholder="Recipe Name" />
 						<input type={"text"}
 							onChange={(e) => { setRecipe({ ...recipe, video: e.target.value }) }}
 							value={recipe?.video} ref={videoRef} className="form-control" placeholder="video Link" />
@@ -106,7 +106,7 @@ const EditRecipe = () => {
 						}
 						<input type={"file"} ref={photoRef} className="form-control" placeholder="photo" />
                         <input type={"file"} ref={backgroundRef} className="form-control" placeholder="background photo" />
-						<textarea ref={descriptionRef} className="form-control" placeholder="Your Article" defaultValue={recipe?.description}></textarea>
+						<textarea ref={descriptionRef} className="form-control" placeholder="Descrription" defaultValue={recipe?.description}></textarea>
 						<div className="button1">
 						<button onClick={addrecipe} type="button" className="button button-large m-0  fw-bold button-circle button-light">Submit</button>
 					</div>

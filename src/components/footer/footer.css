@@ -1,4 +1,4 @@
-/* .bg-color {
+.bg-color {
 	background-color: rgb(143, 131, 131);
 }
 
@@ -9,10 +9,19 @@
 
 
 footer a {
-	color: #ffffff;
+	color: #1d027e80;
 	line-height: 2;
 }
 
 footer a:hover {
-	color: rgb(76, 73, 80);
-} */
+	color: rgba(10, 26, 175, 0.425);
+}
+.tum{
+	margin-bottom: 0%;
+}
+.icons{
+	padding-left: 30rem;
+}
+.container{
+	padding-top: 2rem;
+}

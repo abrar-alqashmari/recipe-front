@@ -1,5 +1,5 @@
 // import { Routes, Route } from "react-router-dom";
- import Recipes from "./Recipes";
+ import Recipes from "./UserRecipes";
 import AddRecipe from "./AddRecipe";
 import EditRecipe from "./EditRecipe";
 

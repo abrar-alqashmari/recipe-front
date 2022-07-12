@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useRequest } from "../../../hooks/useRequest"
 import { Link } from "react-router-dom"
-
-const Recipes = () => {
+const UserRecipes = () => {
     const sendRequest = useRequest()
     const [recipes, setRecipes] = useState([])
     useEffect(() => {
@@ -70,4 +69,4 @@ const Recipes = () => {
     )
 }
 
-export default Recipes
+export default UserRecipes

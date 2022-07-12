@@ -15,6 +15,7 @@ import UserRecipes from "./components/Account/user/UserRecipes";
 import MyRecipe from "./components/Account/user/MyRecipe";
 import { AuthContext } from  "..//src/contexts/AuthContext"
 import { useContext } from "react"
+import SingleRecipe from "./components/recipes/SingelRecipe"
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
 				  <Route path="/user/editrecipe/:id" element={<EditRecipe/>} />
 				  <Route path="/user/UserRecipes" element={<UserRecipes/>} />
 				  <Route path="/user" element={<User />} /> 
+				  <Route path="/recipes/:id" element={<SingleRecipe />}  />
 
 {/* 				 
 				<Route exact path="/" element={<Account />}>

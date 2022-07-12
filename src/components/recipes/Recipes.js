@@ -34,10 +34,10 @@ const Recipes = () => {
                             <div className="col-sm-4 col-6" key={i}>
                                 <div className="card">
                                     <div className="card-body">
-                                        <img src={recipe.recipe_photo} alt={recipe.name} />
+                                        <img src={recipe.recipe_photo} alt={recipe?.name} />
                                         <div className="d-flex justify-content-between align-items-center mt-4 mb-2">
                                         </div>
-                                        <h3 className="card-title"><a href="demos/recipes/recipe-single.html" className="stretched-link">{recipe.name}</a></h3>
+                                        <h3 className="card-title"><Link to={`/recipes/${recipe.id}`} className="stretched-link">{recipe.name}</Link></h3>
                                     </div>
                                 </div>
                             </div>

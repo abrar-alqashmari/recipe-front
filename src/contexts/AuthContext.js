@@ -7,7 +7,7 @@ export const AuthProvider = (props) => {
     const [isAuthenticated, setIsAuthenticated] = useState(!!token)
     const [user, setUser] = useState(JSON.parse(window.localStorage.getItem('user') || '{}'))
     
-    const login = (response) => {
+    const SignIn = (response) => {
         setToken(response.token)
         setUser(response.data)
         window.localStorage.setItem('token', response.token)
@@ -24,7 +24,7 @@ export const AuthProvider = (props) => {
     return <AuthContext.Provider value={{
         isAuthenticated,
         token,
-        login,
+        SignIn,
         logout,
         user
     }}>

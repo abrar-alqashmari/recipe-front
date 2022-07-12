@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
 import { useRequest } from "../../hooks/useRequest"
 import { Link } from "react-router-dom";
+import PageTitle from "../shared/PageTitle";
 
 const SignIn = () => {
 
     const appCtx = useContext(AuthContext)
-    // console.log(appCtx,"----")
 
     const emailRef = useRef()
     const passRef = useRef()
@@ -20,21 +20,20 @@ const SignIn = () => {
         const password = passRef.current.value
         // sendRequest(`${process.env.REACT_APP_API_URL}users/signin`, {}, {
 
-    sendRequest(process.env.REACT_APP_API_URL + "users/signin" , {} ,{ 
+        sendRequest(process.env.REACT_APP_API_URL + "users/signin", {}, {
 
             email,
             password
         }, { type: 'json' }, 'POST')
             .then((response) => {
                 if (response.success) {
-                    appCtx.SignIn(response)
+                    appCtx.login(response)
 
                     navigate('/')
-                    
-                    
-         
-            }
-            //  else {
+
+
+                }
+                //  else {
                 //     window.alert(response?.messages?.join(' '))
                 // }
                 console.log(response, "hi")
@@ -43,34 +42,35 @@ const SignIn = () => {
 
     return (
         <>
-            
-                <div className="custombox clearfix">
-                    <h4 style={{ background: "#000000", color: "white" }} className="small-title">Login Page</h4>
-                    <div className="row">
-                        <div className="col-lg-12 d-flex justify-content-center">
-                            <div className="form-wrapper w-75">
-                                <h4>Login</h4>
+            <PageTitle title='Sign In' content='' />
+            <div className="custombox clearfix">
+                <div className="row">
+                    <div className="col-sm-12 col-md-8 offset-md-2 mt-5 mb-5 d-flex justify-content-center">
+                        <div className="form-wrapper w-75">
+                            <h4>Enter your email and password</h4>
 
-                                <input
-                                    ref={emailRef}
-                                    type="email"
-                                    className="form-control"
-                                    placeholder="Your email"
-                                />
-                                <input
-                                    ref={passRef}
-                                    type="password"
-                                    className="form-control"
-                                    placeholder="Your Password"
-                                />
-                                <button onClick={signin} type="submit" className="btn btn-primary">
+                            <label className="mb-1">Email</label>
+                            <input
+                                ref={emailRef}
+                                type="email"
+                                className="form-control"
+                                placeholder="Your email"
+                            />
+                            <label className="mt-3 mb-1">Password</label>
+                            <input
+                                ref={passRef}
+                                type="password"
+                                className="form-control"
+                                placeholder="Your Password"
+                            />
+                            <div className=" mt-3">
+                                <button onClick={signin} type="submit" className="btn btn-primary me-2">
                                     Login
                                 </button>
-                                <Link to={"/sign-up"}>
+                                <Link to={"/signup"}>
                                     <button
                                         type="submit"
-                                        className="btn btn-danger"
-                                        style={{ background: "#7FFFD4", color: "black" }}
+                                        className="btn btn-info"
                                     >
                                         Sign Up
                                     </button>
@@ -79,7 +79,8 @@ const SignIn = () => {
                         </div>
                     </div>
                 </div>
-            
+            </div>
+
         </>
     )
 }

@@ -1,7 +1,11 @@
 import logo from '../../assets/images/logo.png';
 import { Link } from "react-router-dom";
+import { AuthContext } from  "../../contexts/AuthContext"
+import { useContext } from "react"
+
 
 const Header = () => {
+	const appCtx = useContext(AuthContext)
     return (
         <header id="header" className="transparent-header position-fixed w-100" data-sticky-shrink="false">
 			<div id="header-wrap">
@@ -25,9 +29,10 @@ const Header = () => {
 								<li className="menu-item current">
                                     <Link to="/" className="menu-link" href="demo-recipes.html"><div>Home</div></Link>
                                 </li>
-								<li className="menu-item current">
+								{appCtx.isAuthenticated ? <li className="menu-item current">
                                     <Link to="/user/MyRecipe" className="menu-link"><div>My Recipe</div></Link>
-                                </li>
+                                </li> : <></>}
+								
 								<li className="menu-item">
                                     <Link to="/aboutUs" className="menu-link" href="demo-recipes-about-us.html"><div>About Us</div></Link>
                                 </li>
@@ -37,11 +42,14 @@ const Header = () => {
                                     </a>
 									<ul className="sub-menu-container rounded-bottom">
 										 <div className="dropdown-divider my-0"></div>
+										 {appCtx.isAuthenticated ? <li className="menu-item">
+                                            <Link to="/signout" className="menu-link" href="demo-recipes-recipes.html"><div>signout</div></Link>
+                                        </li>  : <li className="menu-item">
+                                            <Link to="/signup" className="menu-link" href="demo-recipes-recipes.html"><div>SignUp</div></Link>
+                                        </li>}
+										
 										<li className="menu-item">
-                                            <Link to="/signup"className="menu-link" href="demo-recipes-recipes.html"><div>SignUp</div></Link>
-                                        </li>
-										<li className="menu-item">
-                                            <Link to="/signin"className="menu-link" href="demo-recipes-recipes.html"><div>SignIn</div></Link>
+                                            <Link to="/signin" className="menu-link" href="demo-recipes-recipes.html"><div>SignIn</div></Link>
                                         </li>
 										{/* <li className="menu-item">
                                             <Link to="/logout"className="menu-link" href="demo-recipes-recipes.html"><div>LogOut</div></Link>

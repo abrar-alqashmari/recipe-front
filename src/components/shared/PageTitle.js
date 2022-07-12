@@ -1,23 +1,20 @@
 import { Link } from "react-router-dom"
 
-const PageTitle = ({title}) => {
-    
+const PageTitle = ({ title, content }) => {
+
     return (
-        <div className="page-title">
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                        <h2 className="d-flex"><span><i className="fa fa-leaf bg-green"></i></span> <span>{title}</span></h2>
-                    </div>
-                    <div className="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
-                        <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                            <li className="breadcrumb-item active"><Link to='/blog'>Blog</Link></li>
-                        </ol>
+        <section id="page-title" className="pt-5 page-title-parallax page-title-dark include-header" style={{ background: "#111 url('demos/recipes/images/recipes-bg.jpg') center center / cover; padding: 100px 0" }}>
+            <div className="container clearfix">
+                <div className="row pt-5">
+                    <div className="col-md-7 pt-5">
+                        <h1 className="nott mb-5 pt-5">{title}</h1>
+                        <span data-animate="zoomIn" className="text-white-50">
+                            {content}
+                        </span>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

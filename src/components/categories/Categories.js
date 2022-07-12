@@ -17,6 +17,7 @@ export default function Categories() {
       .catch((e) => console.log(e));
   }, []);
   console.log("hello1");
+
   return (
   <div>
      <div className="col-12 mt-5 mb-3">

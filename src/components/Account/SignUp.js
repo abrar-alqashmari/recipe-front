@@ -17,7 +17,7 @@ export default function SignUp() {
     let navigate = useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await fetch(process.env.REACT_APP_API_URL + "/users/signup", {
+        const response = await fetch(process.env.REACT_APP_API_URL + "users/signup", {
             method: "post",
             body: JSON.stringify({
                 first_name: event.target.querySelector('input[name=firstName]').value,

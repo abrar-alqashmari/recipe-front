@@ -9,7 +9,7 @@ const SignOut = () => {
 
     useEffect(() => {
         authContext.logout()
-        navigate('/signin')
+        navigate('/')
     }, [])
 
     return (

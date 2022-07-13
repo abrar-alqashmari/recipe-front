@@ -36,6 +36,14 @@ const UserRecipes = () => {
                     <div className="d-flex align-items-center justify-content-between">
                         <h2 className="m-0">My Recipes</h2>
                         <Link to="/myaccount/recipes/add" className="btn btn-primary">Add New Recipe</Link>
+                        <Link to="/myaccount/recipes/:id" className="btn btn-primary">Edit Recipe</Link>
+                    </div>
+                </div>
+            </div>
+            <div className="row mb-5">
+                <div className="col">
+                    <div className="d-flex align-items-center justify-content-between">
+                        {/* <Link to="/myaccount/recipes/:id" className="btn btn-primary">Edit Recipe</Link> */}
                     </div>
                 </div>
             </div>

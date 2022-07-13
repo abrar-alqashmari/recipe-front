@@ -8,7 +8,6 @@ import PageTitle from "../shared/PageTitle";
 const SignIn = () => {
 
     const appCtx = useContext(AuthContext)
-
     const emailRef = useRef()
     const passRef = useRef()
 
@@ -27,8 +26,7 @@ const SignIn = () => {
         }, { type: 'json' }, 'POST')
             .then((response) => {
                 if (response.success) {
-                    appCtx.login(response)
-
+                    appCtx.SignIn(response)
                     navigate('/')
 
 
@@ -70,8 +68,7 @@ const SignIn = () => {
                                 <Link to={"/signup"}>
                                     <button
                                         type="submit"
-                                        className="btn btn-info"
-                                    >
+                                        className="btn btn-info">
                                         Sign Up
                                     </button>
                                 </Link>

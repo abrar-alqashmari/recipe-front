@@ -11,10 +11,7 @@ const MyRecipe = () => {
                     <div className='MyRecipe-content col-12 col-lg-5 offset-lg-1'>
                     <h1 className="display-6 px-4 center fw-bold d-block">Here is your space to share your awsome Recipes</h1>
                         <p > Healthy digestion is crucial for a strong immune system and for a long life. Our modern reality, however, shows that almost all people are affected by different types of digestive disorders. </p>
-                        <span>
-                            <Link to='/user/addrecipe' className='button button-large m-0  fw-bold button-circle button-light'>Add Your Recipe</Link>
-                            <Link to='/user/editrecipe/id' className='button button-large m-0  fw-bold button-circle button-light'>Edit Your Recipe</Link>                                                                 
-                        </span>
+    
                         <div className='container2 '>
                         <Link to='/user/UserRecipes' className='button button-large m-0  fw-bold button-circle button-light'>My Recipes </Link>
                         </div>

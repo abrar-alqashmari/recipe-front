@@ -11,8 +11,8 @@ export const SignUp = () => {
     const emailRef = useRef()
     const passwordRef = useRef()
     const signup = async () => {
-        const firstname = firstnameRef.current.value
-        const lastname = lastnameRef.current.value
+        const first_name = firstnameRef.current.value
+        const last_name = lastnameRef.current.value
         const username = usernameRef.current.value
         const email = emailRef.current.value
         const password = passwordRef.current.value
@@ -22,8 +22,8 @@ export const SignUp = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                firstname,
-                lastname,
+                first_name,
+                last_name,
                 username,
                 email,
                 password

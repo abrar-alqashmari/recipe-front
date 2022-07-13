@@ -6,9 +6,6 @@ import './AddRecipe.css'
 import { useContext } from "react"
 import { AuthContext } from "../../../contexts/AuthContext"
 import Ingradients from "./Ingradients"
-
-
-
 const AddRecipe = () => {
 	const navigate = useNavigate()
 	const descriptionRef = useRef()
@@ -31,7 +28,7 @@ const AddRecipe = () => {
 	useEffect(() => {
 		sendRequest(`${process.env.REACT_APP_API_URL}categories`)
 			.then((response) => {
-				setCategories(response.data)
+				setCategories(response?.data)
 			})
 	}, [])
 
@@ -44,7 +41,6 @@ const AddRecipe = () => {
 		formdata.append('description', descriptionRef.current.value)
 		// for (var i = 0; i < selectedCategories.length; i++) {
 		formdata.append('categories', selectedCategories)
-
 		formdata.append('recipe_photo', photoRef.current.files[0])
 		console.log(photoRef.current.files[0], "photoRef")
 		formdata.append('background_photo', backgroundRef.current.files[0])

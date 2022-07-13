@@ -28,7 +28,7 @@ function App() {
 				<Route path="/signin" element={<SignIn />} />
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/signout" element={<SignOut />} />
-
+				<Route path="/recipes/:id" element={<SingleRecipe />}  />
 				<Route path="/myaccount" element={<Account />}>
 					<Route path="/myaccount/recipes" element={<UserRecipes />} />
 					<Route path="/myaccount/recipes/add" element={<AddRecipe />} />

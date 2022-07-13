@@ -12,8 +12,8 @@ const Ingradients = ({ recipeIngradients = [] }) => {
 
     
     }
-    const [selectedIngradient, setSelectedIngradient] = useState([])
-    const handleIgradientToggle = (e) => {
+    const [selectedingradient, setSelectedingradient] = useState([])
+    const handleIngradientToggle = (e) => {
 		const ingradientClone = [...selectedingradient]
 		if (e.target.checked) {
 			ingradientClone.push(e.target.value)
@@ -33,14 +33,19 @@ const Ingradients = ({ recipeIngradients = [] }) => {
             {
                 ingradients.map((ingradient, i) => {
                     return (
-                        <div className="row mb-2">
-                            <div className="col-5">
-                                <input  onChange={handleIgradientToggle}  type={'text'} className='form-control' placeholder={'Name'} value={ingradient.name} />
-                            </div>
-                            <div className="col-5">
-                                <input  onChange={handleIgradientToggle}  type={'text'} className='form-control' placeholder={'Description'} value={ingradient.description} />
-                            </div>
-                            <div className="col d-flex justify-content-center">
+                        <div className="row mb-2" key={i} >
+                            <div className="col-5" >
+									<input  onChange={handleIngradientToggle} type={'text'} className='form-control'  placeholder={'Name'} value={ingradient?.id} id={`ingradient-${ingradient.id}`} />
+									&nbsp;<label htmlFor={`ingradient-${ingradient.id}`} >{ingradient.name}</label>
+								</div>
+                                <div className="col-5" >
+									<input  onChange={handleIngradientToggle} type={'text'} className='form-control'   placeholder={'Description'}value={ingradient?.id} id={`ingradient-${ingradient.id}`} />
+									&nbsp;<label htmlFor={`ingradient-${ingradient.id}`} >{ingradient.description}</label>
+								</div>
+
+
+
+                            <div className="col-2 d-flex justify-content-center">
                                 <button className="btn btn-danger" onClick={() => {deleteIngradient(i)}}>x</button>
                             </div>
                         </div>

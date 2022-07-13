@@ -4,7 +4,7 @@ import Header from "./components/header/Header";
 import Home from "./screens/home/Home";
 // import Account from "./components/Account/Account";
 import SignIn from "./components/Account/SignIn";
-import SignUp from "./components/Account/SignUp"
+import {SignUp} from "./components/Account/SignUp"
 import SignOut from "./components/Account/LogOut";
 import AddRecipe from "./components/Account/user/AddRecipe";
 import CatRecipe from "./components/recipes/CatRecipe";

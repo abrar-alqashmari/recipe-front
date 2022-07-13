@@ -1,4 +1,4 @@
-import SideBar from "../sidebar/SideBar"
+// import SideBar from "../sidebar/SideBar"
 
 const Content = ({ children, withSidebar = true }) => {
     
@@ -11,7 +11,7 @@ const Content = ({ children, withSidebar = true }) => {
                     </div>
                     {withSidebar && (
                         <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                            <SideBar />
+                            {/* <SideBar /> */}
                         </div>
                     )}
                 </div>

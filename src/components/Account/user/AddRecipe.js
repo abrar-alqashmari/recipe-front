@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useRequest } from "../../../hooks/useRequest"
@@ -39,27 +38,17 @@ const AddRecipe = () => {
 		formdata.append('name', nameRef.current.value)
 		formdata.append('youtube_video', videoRef.current.value)
 		formdata.append('description', descriptionRef.current.value)
-		// for (var i = 0; i < selectedCategories.length; i++) {
-		formdata.append('categories', selectedCategories)
+		for (var i = 0; i < selectedCategories.length; i++) {
+			formdata.append('categories[]', selectedCategories)
+		}
 		formdata.append('recipe_photo', photoRef.current.files[0])
-		console.log(photoRef.current.files[0], "photoRef")
 		formdata.append('background_photo', backgroundRef.current.files[0])
-		fetch(`${process.env.REACT_APP_API_URL}recipes/addrecipe`, {
-			method: "POST",
-			headers: {
-				'Authorization': 'Bearer ' + ctx.token
-			},
-			body: formdata,
-		}).then(response => {
-			response.json().then((response) => {
-				window.alert(response?.messages?.join(' '))
-				console.log(response, "response")
-				if (response?.success) {
-					navigate('/user/UserRecipes')
-				}
-			})
-				.catch(e => e)
-		}, [])
+
+		sendRequest(`${process.env.REACT_APP_API_URL}recipes/addrecipe`, {}, formdata, {
+			auth: true
+		}, 'POST').then((response) => {
+			console.log(response)
+		})
 	}
 	return (
 		<>

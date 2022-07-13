@@ -40,7 +40,7 @@ const Account = () => {
                             <Routes>
                                 <Route path="recipes" element={<UserRecipes />} />
                                 <Route path="recipes/add" element={<AddRecipe />} />
-                            </Routes>
+                                <Route path="recipes/:id" element={<EditRecipe />} />                            </Routes>
                         </div>
                     </div>
                 </div>

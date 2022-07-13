@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useRequest } from "../../../hooks/useRequest";
 import './AddRecipe.css'
+import Ingradients from "./Ingradients"
 
 const EditRecipe = () => {
 	const navigate = useNavigate()
@@ -10,7 +11,9 @@ const EditRecipe = () => {
 	const [recipe, setRecipe] = useState({
 		name: '',
 		video: '',
-		description: ''
+		description: '',
+		recipe_photo: '',
+		background: ''
 	})
 	useEffect(() => {
 		sendRequest(`${process.env.REACT_APP_API_URL}recipes/${id}`, {}, {}, { auth: true })
@@ -24,7 +27,7 @@ const EditRecipe = () => {
 	}, [])
 	const descriptionRef = useRef()
 	const videoRef = useRef()
-	const photoRef = useRef()
+	const recipe_photoRef = useRef()
     const backgroundRef = useRef()
 	const nameRef = useRef()
 	const [categories, setCategories] = useState([])
@@ -43,7 +46,7 @@ const EditRecipe = () => {
 
   useEffect(() => {
     
-    sendRequest(`${process.env.REACT_APP_API_URL}/categories`).then(
+    sendRequest(`${process.env.REACT_APP_API_URL}categories`).then(
       (response) => {
         setCategories(response?.data);
       }
@@ -59,8 +62,8 @@ const EditRecipe = () => {
 			formdata.append('categories[]', selectedCategories[i])
 		}
 		
-		formdata.append('photo', photoRef.current.files[0])
-        formdata.append('background', backgroundRef.current.files[0])
+		formdata.append('recipe_photo', recipe_photoRef.current.files[0])
+        formdata.append('background_photo', backgroundRef.current.files[0])
 		sendRequest(`${process.env.REACT_APP_API_URL}recipes/${id}`, {}, formdata, { auth: true }, 'put')
 			.then((response) => {
 				window.alert(response?.messages?.join(' '))
@@ -70,27 +73,55 @@ const EditRecipe = () => {
 			})
 	}
 	return (
-		<div className="box1">
-			<div className="box">
-			<h3 className="recipee">Edit recipe</h3>
-			<div className="row">
-				<div className="col-lg-12">
-					<div className="form">
-						<input type={"text"}
-							onChange={(e) => { setRecipe({ ...recipe, name: e.target.value }) }}
-							value={recipe?.name} ref={nameRef} className="form-control" placeholder="Recipe Name" />
-						<input type={"text"}
-							onChange={(e) => { setRecipe({ ...recipe, video: e.target.value }) }}
-							value={recipe?.video} ref={videoRef} className="form-control" placeholder="video Link" />
-						
-
-						<h4>Select recipe Categories</h4>
-						<div className="container">
-							<div className="row mb-4">
-								{
-									categories?.map((category, i) => {
-										return (
-											<div key={i} className='my-2 col-md-4 col-lg-3'>
+		<>
+			<div className="container-fluid">
+				<div className="row">
+					<div className="col">
+						<h2>Edit Recipe</h2>
+					</div>
+				</div>
+				<div className="row mb-3">
+					<div className="col">
+						<label>Recipe Name</label>
+						<input type={'text'} onChange={(e) => { setRecipe({ ...recipe, name: e.target.value }) }}
+							value={recipe?.name} ref={nameRef} className='form-control' />
+					</div>
+				</div>
+				<div className="row mb-3">
+					<div className="col">
+						<label>Recipe Description</label>
+						<textarea ref={descriptionRef} onChange={(e) => { setRecipe({ ...recipe, descriptio: e.target.value }) }}
+							value={recipe?.descriptio}  className='form-control' cols="7"></textarea>
+					</div>
+				</div>
+				<div className="row mb-3">
+					<div className="col">
+						<label>Recipe Video</label>
+						<input type={'url'} onChange={(e) => { setRecipe({ ...recipe, video: e.target.value }) }}
+							value={recipe?.video} ref={videoRef} className="form-control" placeholder="video Link"  />
+					</div>
+				</div>
+				<div className="row mb-3">
+					<div className="col">
+						<label>Recipe Photo</label>
+						<input type={'file'}  onChange={(e) => { setRecipe({ ...recipe, recipe_photo: e.target.value }) }}
+							value={recipe?.recipe_photo} ref={recipe_photoRef} className='form-control' />
+					</div>
+				</div>
+				<div className="row mb-3">
+					<div className="col">
+						<label>Recipe Background</label>
+						<input type={'file'} onChange={(e) => { setRecipe({ ...recipe, background: e.target.value }) }}
+							value={recipe?.background} ref={backgroundRef} className='form-control' cols="7" />
+					</div>
+				</div>
+				<div className="row mb-3">
+					<div className="col">
+						<label>Recipe Categoreis</label>
+						<div className="row">
+						{categories?.map((category, i) => {
+							return (
+								<div className="col-4" key={i}>
 												<input
 													checked={selectedCategories.includes(category.id)}
 													onChange={handleCategoryToggle} type='checkbox' value={category.id} id={`category-${category.id}`} />&nbsp;
@@ -101,20 +132,20 @@ const EditRecipe = () => {
 								}
 							</div>
 						</div>
-						{
-							recipe?.photo && <img src={recipe?.photo} width='100' style={{ height: 'auto' }} />
-						}
-						<input type={"file"} ref={photoRef} className="form-control" placeholder="photo" />
-                        <input type={"file"} ref={backgroundRef} className="form-control" placeholder="background photo" />
-						<textarea ref={descriptionRef} className="form-control" placeholder="Descrription" defaultValue={recipe?.description}></textarea>
-						<div className="button1">
-						<button onClick={addrecipe} type="button" className="button button-large m-0  fw-bold button-circle button-light">Submit</button>
+						</div>
+						<div className="row mb-3">
+					<div className="col">
+						<label>Recipe Ingradients</label>
+						<Ingradients />
 					</div>
 				</div>
+				<div className="row mt-4">
+					<div className="col d-flex justify-content-center">
+					<button onClick={addrecipe} type="button" className="button button-large m-0 fw-bold button-circle button-light">Submit</button>	
+					</div>	
 				</div>
 			</div>
-		</div>
-		</div>
+		</>
 	)
 }
 

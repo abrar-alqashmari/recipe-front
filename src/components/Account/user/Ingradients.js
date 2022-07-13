@@ -33,7 +33,7 @@ const Ingradients = ({ recipeIngradients = [] }) => {
             {
                 ingradients.map((ingradient, i) => {
                     return (
-                        <div className="row mb-2" key={i} >
+                        <div className="row mb-1" key={i} >
                             <div className="col-5" >
 									<input  onChange={handleIngradientToggle} type={'text'} className='form-control'  placeholder={'Name'} value={ingradient?.id} id={`ingradient-${ingradient.id}`} />
 									&nbsp;<label htmlFor={`ingradient-${ingradient.id}`} >{ingradient.name}</label>
@@ -45,7 +45,7 @@ const Ingradients = ({ recipeIngradients = [] }) => {
 
 
 
-                            <div className="col-2 d-flex justify-content-center">
+                            <div className="col-2 ">
                                 <button className="btn btn-danger" onClick={() => {deleteIngradient(i)}}>x</button>
                             </div>
                         </div>

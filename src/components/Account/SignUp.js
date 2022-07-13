@@ -1,133 +1,102 @@
-import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
+import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import PageTitle from "../shared/PageTitle"
 
-const theme = createTheme();
-
-export default function SignUp() {
-    let navigate = useNavigate();
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const response = await fetch(process.env.REACT_APP_API_URL + "users/signup", {
-            method: "post",
-            body: JSON.stringify({
-                first_name: event.target.querySelector('input[name=firstName]').value,
-                last_name: event.target.querySelector('input[name=lastName]').value,
-                email: event.target.querySelector('input[name=email]').value,
-                username: event.target.querySelector('input[name=username]').value,
-                password: event.target.querySelector('input[name=password]').value
-            }),
+export const SignUp = () => {
+    const navigate = useNavigate()
+    const firstnameRef = useRef()
+    const lastnameRef = useRef()
+    const usernameRef = useRef()
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const signup = async () => {
+        const first_name = firstnameRef.current.value
+        const last_name = lastnameRef.current.value
+        const username = usernameRef.current.value
+        const email = emailRef.current.value
+        const password = passwordRef.current.value
+        const response = await fetch(`${process.env.REACT_APP_API_URL}users/signup`, {
+            method: 'post',
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            body: JSON.stringify({
+                first_name,
+                last_name,
+                username,
+                email,
+                password
+            })
         })
         const userRegistered = await response.json()
         if (userRegistered.success) {
+            // redirect to sign in
             navigate('/signin')
         } else {
             window.alert(userRegistered.messages)
         }
-    };
+    }
 
     return (
-        <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Box
-                    sx={{
-                        marginTop: 8,
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        
-                    }}
-                >
-                    <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign Up
-                    </Typography>
-                    <Box
-                        component="form"
-                        noValidate
-                        onSubmit={handleSubmit}
-                        sx={{ mt: 3 }}
-                    >
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    autoComplete="given-name"
-                                    name="firstName"
-                                    required
-                                    fullWidth
-                                    id="firstName"
-                                    label="First Name"
-                                    autoFocus
+        <>
+            <PageTitle title='Create your Account' content='Hello & Welcome, To have a better experince please fill in the form and join cooking world' />
+                <div className="custombox clearfix">
+                    <div className="row">
+                    <div className="col-sm-12 col-md-8 offset-md-2 mt-5 mb-5 d-flex justify-content-center">
+                            <div className="form-wrapper w-75">
+                                <h4 >Sign Up</h4>
+                                <label className="mb-1">First Name</label>
+                                <input
+                                    ref={firstnameRef}
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Your FirstName"
                                 />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="lastName"
-                                    label="Last Name"
-                                    name="lastName"
-                                    autoComplete="family-name"
+                                <label className="mb-1">Last Name</label>
+                                <input
+                                    ref={lastnameRef}
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Your LastName"
                                 />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="email"
+                                 <label className="mb-1">UserName</label>
+                                <input
+                                    ref={usernameRef}
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="UserName"
                                 />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="username"
-                                    label="Username"
-                                    name="username"
-                                    autoComplete="username"
+                                <label className="mb-1">Email</label>
+                                <input
+                                    ref={emailRef}
+                                    type="email"
+                                    className="form-control"
+                                    placeholder="Your email"
                                 />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="password"
-                                    label="Password"
+                                <label className="mt-3 mb-1">Password</label>
+                                <input
+                                    ref={passwordRef}
                                     type="password"
-                                    id="password"
-                                    autoComplete="new-password"
+                                    className="form-control"
+                                    placeholder="Your Password"
                                 />
-                            </Grid>
-                        </Grid>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                        >
-                            Sign Up
-                        </Button>
-                    </Box>
-                </Box>
-            </Container>
-        </ThemeProvider>
+                                 <div className=" mt-3">
+                                <button onClick={signup} type="submit" className="btn btn-primary me-2">
+                                submit
+                                </button>
+                                <Link to={"/signin"}>
+                                    <button
+                                        type="button"
+                                        className="btn btn-info">
+                                        Login
+                                    </button>
+                                </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </>
     );
-}
+};

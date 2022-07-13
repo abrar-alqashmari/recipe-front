@@ -16,7 +16,6 @@ export default function Categories() {
       })
       .catch((e) => console.log(e));
   }, []);
-  console.log("hello1");
 
   return (
   <div>
@@ -26,7 +25,6 @@ export default function Categories() {
          </div>
       <div className="recipe-categories justify-content-center">
         {categories.map((category, i) => {
-          console.log(category)
           return <Link to={`/category/${category.id}`}
               data-animate="fadeInUp" data-delay={i * 100} className="recipe-category fadeInUp animated"
               style={{backgroundImage: `url('${category.photo}')`}}>

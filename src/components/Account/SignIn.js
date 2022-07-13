@@ -27,7 +27,7 @@ const SignIn = () => {
         }, { type: 'json' }, 'POST')
             .then((response) => {
                 if (response.success) {
-                    appCtx.login(response)
+                    appCtx.SignIn(response)
 
                     navigate('/')
 

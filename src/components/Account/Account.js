@@ -28,11 +28,11 @@ const Account = () => {
                                 <li className="list-group-item">
                                     <Link to="/myaccount/recipes">My Recipes</Link>
                                 </li>
-                                <li className="list-group-item">
+                                {/* <li className="list-group-item">
                                     <Link to="/myaccount/favorites">My Favorits</Link>
-                                </li>
-                                <li className="list-group-item">
-                                    <Link to="/signout">Sign Out</Link>
+                                </li> */}
+                                <li className="list-group-item">0+69
+  .300                                  <Link to="/signout">Sign Out</Link>
                                 </li>
                             </ul>
                         </div>
@@ -40,7 +40,8 @@ const Account = () => {
                             <Routes>
                                 <Route path="recipes" element={<UserRecipes />} />
                                 <Route path="recipes/add" element={<AddRecipe />} />
-                                <Route path="recipes/:id" element={<EditRecipe />} />                            </Routes>
+                                <Route path="recipes/:id" element={<EditRecipe />} />  
+                             </Routes>
                         </div>
                     </div>
                 </div>

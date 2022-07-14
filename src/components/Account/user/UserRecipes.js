@@ -16,7 +16,7 @@ const UserRecipes = () => {
 
     const deletRecipe = (id) => {
         if (window.confirm('Do you want to delete this post')) {
-            sendRequest(`${process.env.REACT_APP_API_URL}/recipes/${id}`, {}, {}, {
+            sendRequest(`${process.env.REACT_APP_API_URL}recipes/${id}`, {}, {}, {
                 auth: true,
             }, 'DELETE').then((response) => {
                 console.log(response)
@@ -46,9 +46,9 @@ const UserRecipes = () => {
                             <tr>
                                 <th>Name</th>
                                 <th>Category</th>
-                                <th>description</th>
-                                {/* <th>Date</th>
-                    <th>Options</th> */}
+                              
+                                <th>Date</th>
+                   
                             </tr>
                         </thead>
                         <tbody>
@@ -56,19 +56,19 @@ const UserRecipes = () => {
                                 return (
                                     <tr key={i}>
                                         <td>{recipe?.name}</td>
-                                        <td>{recipe?.Category?.map((c, i) => {
+                                        <td>{recipe?.Categories?.map((c, i) => {
                                             return (
                                                 <React.Fragment key={i}>
                                                     <span key={i}>{c.title}</span>
-                                                    {(i < recipe.Category.length - 1) && <>, </>}
+                                                    {(i < recipe.Categories.length - 1) && <>, </>}
                                                 </React.Fragment>
                                             )
                                         })}</td>
-                                        <td>{recipe?.verified ? 'Yes' : 'No'}</td>
+                                        {/* <td>{recipe?.verified ? 'Yes' : 'No'}</td> */}
                                         <td>{recipes?.createdAt}</td>
                                         <td style={{ whiteSpace: 'nowrap' }}>
-                                            <button onClick={() => { deletRecipe(recipe.id) }} className="btn btn-primary" >Delete</button>
-                                            <Link to={`/account/edit/${recipe.id}`}>
+                                            <button onClick={() => { deletRecipe(recipe.id) }} className="btn btn-danger" >Delete</button>
+                                            <Link to={`/myaccount/recipes/${recipe.id}`}>
                                                 <button className="btn btn-primary" style={{ marginLeft: "2px" }}>Edit</button >
                                             </Link>
                                         </td>

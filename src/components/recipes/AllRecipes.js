@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Recipe.css";
-const Recipes = () => {
+import PageTitle from "../shared/PageTitle";
+const AllRecipes = () => {
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}recipes`)
@@ -17,9 +18,13 @@ const Recipes = () => {
   }, []);
   console.log(recipes);
   return (
+    <>
+       <PageTitle title={'All Recipes'} />
+    
     <div
-      className="section recipe-items p-0"
-      style={{ overflow: "visible", backgroundColor: "#f9f9f9" }}
+    
+      className="section recipe-items p-0 m-1v"
+      style={{ overflow: "visible", background: "#f9f9f9" }}
     >
       <div className="row align-items-stretch align-content-stretch g-0">
         <div className="col-lg-4 dark">
@@ -28,50 +33,38 @@ const Recipes = () => {
             style={{
               top: 0,
               background:
-                "linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)), url('https://i.pinimg.com/736x/e1/25/4d/e1254dcb032c0a5cae84831bae96ef78.jpg') center center / cover",
+                "linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)), url('https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80') center center / cover",
             }}
           >
-            <h2 className="display-4 px-3 center fw-bold d-block">
-              Latest
-              <br />
-              Recipes
-            </h2>
-            <Link
-              to="/AllRecipes"
-              className="button button-large button-light button-white button-circle m-0 px-5"
-            >
-              View All
-            </Link>
+            
           </div>
         </div>
         <div className="col-lg-8">
-          <div className="row g-0">
+          <div className="row g-2">
             {recipes.map((recipe, i) => {
               return (
                 <div className="col-sm-4 col-6" key={i}>
                   <div className="homepage-card">
-                    <div className="card-body">
-                  <div className="photo">
+                
                       <img src={recipe?.recipe_photo} alt={recipe?.name} />
-                       </div>
                       <div className="d-flex justify-content-between align-items-center mt-4 mb-2"></div>
                       <h3 className="card-title">
                         <Link
                           to={`/recipes/${recipe.id}`}
-                          className="stretched-link"  >
+                          className="stretched-link "  >
                           {recipe.name}
                         </Link>
                       </h3>
                     </div>
                   </div>
-                </div>
               );
             })}
           </div>
         </div>
-      </div>
+     </div>
     </div>
+    </>
   );
 };
 
-export default Recipes;
+export default AllRecipes;

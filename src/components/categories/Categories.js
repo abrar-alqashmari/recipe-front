@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Categories.css";
 
-
 export default function Categories() {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -18,6 +17,7 @@ export default function Categories() {
   }, []);
 
   return (
+    
   <div>
      <div className="col-12 mt-5 mb-3">
       <div className="center">

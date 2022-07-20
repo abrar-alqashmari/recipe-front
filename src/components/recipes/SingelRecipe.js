@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { color } from "@mui/system";
 
 const SingleRecipe = () => {
   const [singleRecipe, setSingleRecipe] = useState({});
@@ -20,19 +21,22 @@ const SingleRecipe = () => {
         .catch((e) => console.log(e));
     };
     fetchData();
+    console.log("singleRecipe", singleRecipe);
   }, [id]);
 
   return (
     <>
       <section
-        id="slider"
-        className="slider-element dark parallax include-header"
+        id="slider "
+        className=" slider-element dark parallax include-header"
         style={{
+          overflow: "visible",
+          backgroundColor: "#f9f9f9",
           background: `url(${singleRecipe.background_photo}) center center / cover`,
           padding: "230px",
         }}
       >
-        <div className="container clearfix">
+        <div className="container clearfix ">
           <div className="mx-auto center" style={{ maxWidth: "800px" }}>
             <h3 className="nott fw-bold mb-5 display-4">
               {singleRecipe?.name}
@@ -42,7 +46,7 @@ const SingleRecipe = () => {
             <div className="slider-features">
               <ul className="list-unstyled row g-0 align-items-center overflow-hidden col-mb-50 mt-5">
                 <li className="col-6 col-lg text-center text-lg-start">
-                  <div className="grid-inner px-5">
+                  {/* <div className="grid-inner px-5">
                     <img
                       src="demos/recipes/images/icons/level.svg"
                       alt="Level"
@@ -79,7 +83,7 @@ const SingleRecipe = () => {
                       width="30"
                     />
                     <h5 className="mb-0">223 Reviews</h5>
-                  </div>
+                  </div> */}
                 </li>
               </ul>
             </div>
@@ -100,7 +104,7 @@ const SingleRecipe = () => {
                     <ul className="list-unstyled list-ingredients bg-light p-4">
                       {singleRecipe?.Ingredients?.map((recipe, i) => {
                         return (
-                          <div>
+                          <div key={i}>
                             <li key={i}>{recipe.name}</li>
                             <ul>
                               <li>{recipe.description}</li>
@@ -135,9 +139,9 @@ const SingleRecipe = () => {
                       height="315"
                       src={`https://www.youtube.com/embed/${singleRecipe?.youtube_video}`}
                       title="YouTube video"
-                      frameborder="0"
+                      frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
+                      allowFullScreen
                     ></iframe>
                     <div
                       className="rounded position-relative dark mb-5"
@@ -150,7 +154,7 @@ const SingleRecipe = () => {
                         href="https://www.youtube.com/watch?v=P3Huse9K6Xs"
                         className="play-video stretched-link"
                       >
-                        <i className="icon-play"></i>
+                        {/* <i className="icon-play"></i> */}
                       </a>
                     </div>
                     <h4>{singleRecipe.description}</h4>

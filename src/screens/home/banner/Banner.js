@@ -11,7 +11,7 @@ const Banner = () => {
                         <h1>Avocado and figs toast</h1>
                         <p>Lorem ipsum manar dolor abrar sit amit hammodi and Feras Lorem Ipsum is simply dummy text of the printing and typesetting industry. orem ipsum manar dolor abrar sit</p>
                         <span>
-                            <Link to='/recipes' className='button button-large m-0  fw-bold button-circle button-light'>Check Recipes</Link>
+                            <Link to='/AllRecipes' className='button button-large m-0  fw-bold button-circle button-light'>Check Recipes</Link>
                         </span>
                     </div>
                     <div className='col-12 col-lg-6 text-center'>

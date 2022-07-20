@@ -14,7 +14,7 @@ import { AuthContext } from "..//src/contexts/AuthContext"
 import { useContext } from "react"
 import SingleRecipe from "./components/recipes/SingelRecipe"
 import Account from "./components/Account/Account";
-
+import AllRecipes from "./components/recipes/AllRecipes";
 
 function App() {
 	const appCtx = useContext(AuthContext)
@@ -29,12 +29,15 @@ function App() {
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/signout" element={<SignOut />} />
 				<Route path="/recipes/:id" element={<SingleRecipe />}  />
+				<Route path="/AllRecipes" element={<AllRecipes/>} />
+
 				<Route path="/myaccount" element={<Account />}>
-					<Route path="/myaccount/recipes" element={<UserRecipes />} />
-					<Route path="/myaccount/recipes/add" element={<AddRecipe />} />
-					<Route path="/myaccount/recipes/:id" element={<EditRecipe />} />
-					<Route path="/myaccount/favorites" element={<>Not made yet</>} />
-				</Route>
+				<Route path="/myaccount/recipes" element={<UserRecipes />} />
+				<Route path="/myaccount/recipes/add" element={<AddRecipe />} />
+				<Route path="/myaccount/recipes/:id" element={<EditRecipe />} />
+				<Route path="/myaccount/favorites" element={<>Not made yet</>} />
+
+			</Route>
 				{/* <Route path='/user/recipe' element={<Recipes />} />
 				<Route path='/user/recipe/:id' element={<CatRecipe />} />
 				<Route path="/user/addrecipe" element={<AddRecipe />} />

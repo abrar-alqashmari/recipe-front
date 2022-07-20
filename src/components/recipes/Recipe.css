@@ -28,10 +28,23 @@
     box-shadow: none;
     width: 300px;
     height: 300px;
-    color: gray;
+    color: rgb(121, 112, 112);
     display: inline-block;
+    /* animation: rotation 30s infinite linear; */
+
 }
+.card-title{
+/* padding-left: 7rem;
+padding-right: 7rem; */
+text-align: center ;
+justify-content: center;}
 
 .card-body {
     display: inline-block;
+}
+.photo {
+    /* transform: rotate(0deg); */
+    /* transition: transform 1.5s linear; */
+    animation: rotation 60s infinite linear;
+
 }

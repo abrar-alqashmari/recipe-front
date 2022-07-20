@@ -31,8 +31,8 @@ const Account = () => {
                                 {/* <li className="list-group-item">
                                     <Link to="/myaccount/favorites">My Favorits</Link>
                                 </li> */}
-                                <li className="list-group-item">0+69
-  .300                                  <Link to="/signout">Sign Out</Link>
+                                <li className="list-group-item">
+                                <Link to="/signout">Sign Out</Link>
                                 </li>
                             </ul>
                         </div>

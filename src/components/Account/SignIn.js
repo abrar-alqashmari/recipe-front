@@ -25,15 +25,17 @@ const SignIn = () => {
             password
         }, { type: 'json' }, 'POST')
             .then((response) => {
+                console.log(response,"response")
                 if (response.success) {
                     appCtx.SignIn(response)
+
                     navigate('/')
 
 
                 }
-                //  else {
-                //     window.alert(response?.messages?.join(' '))
-                // }
+                 else {
+                    window.alert(response?.messages)
+                }
                 console.log(response, "hi")
             })
     }
